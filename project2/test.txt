@@ -1,0 +1,174 @@
+import sys
+from tkinter import *
+
+global tala1 
+global takn
+nr = 0
+tala1 = 0
+tala2 = 0
+
+def clear():
+    global summa
+    txtDisplay.delete(0, END)
+    summa = 0
+    return
+def einn():
+    txtDisplay.insert(END, 1)
+    return
+def tveir():
+    txtDisplay.insert(END, 2)
+    return
+def trir():
+    txtDisplay.insert(END, 3)
+    return
+def fjorir():
+    txtDisplay.insert(END, 4)
+    return
+def fimm():
+    txtDisplay.insert(END, 5)
+    return
+def sex():
+    txtDisplay.insert(END, 6)
+    return
+def sjo():
+    txtDisplay.insert(END, 7)
+    return
+def atta():
+    txtDisplay.insert(END, 8)
+    return
+def niu():
+    txtDisplay.insert(END, 9)
+    return
+def null():
+    txtDisplay.insert(END, 0)
+    return
+def deila():
+    global tala1
+    global takn
+    takn = '/'
+    t = int(txtDisplay.get())
+    tala1 = t
+    txtDisplay.delete(0, END)
+    return
+def plus():
+    global tala1
+    global takn
+    takn = '+'
+    t = int(txtDisplay.get())
+    tala1 = t
+    txtDisplay.delete(0, END)
+    return
+def minus():
+    global tala1
+    global takn
+    takn = '-'
+    t = int(txtDisplay.get())
+    tala1 = t
+    txtDisplay.delete(0, END)
+    return
+def sinnum():
+    global tala1
+    global takn
+    takn = '*'
+    t = int(txtDisplay.get())
+    tala1 = t
+    txtDisplay.delete(0, END)
+    return
+def jafnt():
+    global tala1
+    global takn
+    if takn == '+':
+        tala2 = int(txtDisplay.get())
+        summa = tala1 + tala2
+    elif takn == '-':
+        tala2 = int(txtDisplay.get())
+        summa = tala1 - tala2
+    elif takn == '/':
+        tala2 = int(txtDisplay.get())
+        summa = tala1 / tala2
+    elif takn == '*':
+        tala2 = int(txtDisplay.get())
+        summa = tala1 * tala2
+    txtDisplay.delete(0, END)
+    txtDisplay.insert(0, summa)
+    return
+
+root = Tk()
+frame = Frame(root)
+frame.pack()
+
+root.title('Calculator')
+
+num1 = StringVar()
+
+topframe = Frame(root)
+topframe.pack(side = TOP)
+
+txtDisplay = Entry(frame, textvariable = num1, bd = 20, insertwidth = 1, font = 30)
+txtDisplay.pack(side = TOP)
+
+button1 = Button(topframe, padx = 16, pady = 16, bd = 8, text = "1", fg = "black", command = einn)
+button1.pack(side = LEFT)
+button1.config(height = 1, width = 2)
+button2 = Button(topframe, padx = 16, pady = 16, bd = 8, text = "2", fg = "black", command = tveir)
+button2.pack(side = LEFT)
+button2.config(height = 1, width = 2)
+button3 = Button(topframe, padx = 16, pady = 16, bd = 8, text = "3", fg = "black", command = trir)
+button3.pack(side = LEFT)
+button3.config(height = 1, width = 2)
+button4 = Button(topframe, padx = 16, pady = 16, bd = 8, text = "/", fg = "black", command = deila)
+button4.pack(side = LEFT)
+button4.config(height = 1, width = 2)
+
+frame1 = Frame(root)
+frame1.pack(side = TOP)
+
+button1 = Button(frame1, padx = 16, pady = 16, bd = 8, text = "4", fg = "black", command = fjorir)
+button1.pack(side = LEFT)
+button1.config(height = 1, width = 2)
+button2 = Button(frame1, padx = 16, pady = 16, bd = 8, text = "5", fg = "black", command = fimm)
+button2.pack(side = LEFT)
+button2.config(height = 1, width = 2)
+button3 = Button(frame1, padx = 16, pady = 16, bd = 8, text = "6", fg = "black", command = sex)
+button3.pack(side = LEFT)
+button3.config(height = 1, width = 2)
+button4 = Button(frame1, padx = 16, pady = 16, bd = 8, text = "*", fg = "black", command = sinnum)
+button4.pack(side = LEFT)
+button4.config(height = 1, width = 2)
+
+frame2 = Frame(root)
+frame2.pack(side = TOP)
+
+button1 = Button(frame2, padx = 16, pady = 16, bd = 8, text = "7", fg = "black", command = sjo)
+button1.pack(side = LEFT)
+button1.config(height = 1, width = 2)
+button2 = Button(frame2, padx = 16, pady = 16, bd = 8, text = "8", fg = "black", command = atta)
+button2.pack(side = LEFT)
+button2.config(height = 1, width = 2)
+button3 = Button(frame2, padx = 16, pady = 16, bd = 8, text = "9", fg = "black", command = niu)
+button3.pack(side = LEFT)
+button3.config(height = 1, width = 2)
+button4 = Button(frame2, padx = 16, pady = 16, bd = 8, text = "-", fg = "black", command = minus)
+button4.pack(side = LEFT)
+button4.config(height = 1, width = 2)
+
+frame3 = Frame(root)
+frame3.pack(side = TOP)
+
+button1 = Button(frame3, padx = 16, pady = 16, bd = 8, text = "C", fg = "black", command = clear)
+button1.pack(side = LEFT)
+button1.config(height = 1, width = 2)
+button2 = Button(frame3, padx = 16, pady = 16, bd = 8, text = "0", fg = "black", command = null)
+button2.pack(side = LEFT)
+button2.config(height = 1, width = 2)
+button3 = Button(frame3, padx = 16, pady = 16, bd = 8, text = "=", fg = "black", command = jafnt)
+button3.pack(side = LEFT)
+button3.config(height = 1, width = 2)
+button4 = Button(frame3, padx = 16, pady = 16, bd = 8, text = "+", fg = "black", command = plus)
+button4.pack(side = LEFT)
+button4.config(height = 1, width = 2)
+
+root.mainloop()
+
+
+
